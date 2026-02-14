@@ -1,0 +1,2254 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Resume Checker",
+        "formDescription": "Put your info here for us to contact you :)",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Full Name",
+              "placeholder": "Please Enter your Name :",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Gmail",
+              "fieldType": "email",
+              "placeholder": "Please enter your Gmail :"
+            },
+            {
+              "fieldLabel": "Age",
+              "fieldType": "number",
+              "placeholder": "Please enter your Age :"
+            },
+            {
+              "fieldLabel": "Job",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "AI Engineer"
+                  },
+                  {
+                    "option": "Back End Developer"
+                  },
+                  {
+                    "option": "Front End Developer"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Phone Number",
+              "fieldType": "number",
+              "placeholder": "Please enter your Phone Number :"
+            },
+            {
+              "fieldLabel": "Resume PDF or DOCX or IMG",
+              "fieldType": "file"
+            }
+          ]
+        },
+        "options": {
+          "customCss": ":root {\n\t--font-family: 'Open Sans', sans-serif;\n\t--font-weight-normal: 400;\n\t--font-weight-bold: 600;\n\t--font-size-body: 12px;\n\t--font-size-label: 14px;\n\t--font-size-test-notice: 12px;\n\t--font-size-input: 14px;\n\t--font-size-header: 20px;\n\t--font-size-paragraph: 14px;\n\t--font-size-link: 12px;\n\t--font-size-error: 12px;\n\t--font-size-html-h1: 28px;\n\t--font-size-html-h2: 20px;\n\t--font-size-html-h3: 16px;\n\t--font-size-html-h4: 14px;\n\t--font-size-html-h5: 12px;\n\t--font-size-html-h6: 10px;\n\t--font-size-subheader: 14px;\n\n\t/* Colors - Dark Theme */\n\t--color-background: #121212; /* پس‌زمینه کلی */\n\t--color-test-notice-text: #e6a23d;\n\t--color-test-notice-bg: #1e1e1e;\n\t--color-test-notice-border: #3a3a3a;\n\t--color-card-bg: #1e1e1e;\n\t--color-card-border: #2c2c2c;\n\t--color-card-shadow: rgba(0, 0, 0, 0.6);\n\t--color-link: #9ea0a5;\n\t--color-header: #e0e0e0;\n\t--color-label: #cccccc;\n\t--color-input-border: #3a3a3a;\n\t--color-input-text: #000000; /* متن تایپ شده مشکی باقی می‌ماند */\n\t--color-focus-border: rgb(90, 76, 194);\n\t--color-submit-btn-bg: #ff6d5a;\n\t--color-submit-btn-text: #ffffff;\n\t--color-error: #ff4d4d;\n\t--color-required: #ff6d5a;\n\t--color-clear-button-bg: #9ea0a5;\n\t--color-html-text: #cccccc;\n\t--color-html-link: #ff6d5a;\n\t--color-header-subtext: #9ea0a5;\n\n\t/* Border Radii */\n\t--border-radius-card: 8px;\n\t--border-radius-input: 6px;\n\t--border-radius-clear-btn: 50%;\n\t--card-border-radius: 8px;\n\n\t/* Spacing */\n\t--padding-container-top: 24px;\n\t--padding-card: 24px;\n\t--padding-test-notice-vertical: 12px;\n\t--padding-test-notice-horizontal: 24px;\n\t--margin-bottom-card: 16px;\n\t--padding-form-input: 12px;\n\t--card-padding: 24px;\n\t--card-margin-bottom: 16px;\n\n\t/* Dimensions */\n\t--container-width: 448px;\n\t--submit-btn-height: 48px;\n\t--checkbox-size: 18px;\n\n\t/* Others */\n\t--box-shadow-card: 0px 4px 16px 0px var(--color-card-shadow);\n\t--opacity-placeholder: 0.5;\n}"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        -608,
+        416
+      ],
+      "id": "",
+      "name": "On form submission",
+      "webhookId": "a4f052d1-7906-48c5-a4dd-c0b048373cf0"
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "=Resume_PDF_or_DOCX_or_IMG",
+        "name": "={{ $json[\"Full Name\"] }} RESUME",
+        "driveId": {
+          "__rl": true,
+          "value": "My Drive",
+          "mode": "list",
+          "cachedResultName": "My Drive",
+          "cachedResultUrl": "Your google drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1qLcQFx2P6Z9kz05OP3HIHEyRPkQJh4vj",
+          "mode": "list",
+          "cachedResultName": "NEW FORM HIRE",
+          "cachedResultUrl": "google drive foolder"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -400,
+        624
+      ],
+      "id": "",
+      "name": "Upload file",
+      "retryOnFail": true,
+      "maxTries": 4,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1mc9_q20jVB4OOvaAcCoBrzYHUppVpTkSP3Yf9wtadDE",
+          "mode": "list",
+          "cachedResultName": "Resume Form First Round",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Full Name": "={{ $json['Full Name'] }}",
+            "Gmail": "={{ $json.Gmail }}",
+            "Age": "={{ $json.Age }}",
+            "Phone Number": "={{ $json['Phone Number'] }}",
+            "Job": "={{ $json.Job }}",
+            "Submit Date": "={{ $json.submittedAt }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Gmail",
+              "displayName": "Gmail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Age",
+              "displayName": "Age",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Job",
+              "displayName": "Job",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Submit Date",
+              "displayName": "Submit Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -368,
+        192
+      ],
+      "id": "",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('On form submission').item.json.Gmail }}",
+        "subject": "رزومه ارسالی شما",
+        "emailType": "text",
+        "message": "=سلام {{ $('On form submission').item.json['Full Name'] }}\nرزومه شما در دست بررسی قرار گرفته طی 1 الی 2 روز اینده نتیحه بررسی رزومه شما از طریق همین جیمیل به شما اطلاع رسانی میشود.\n\nممنون از صبر و شکیبایی شما :)",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "AR COMPANY"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -144,
+        192
+      ],
+      "id": "",
+      "name": "Send a message",
+      "webhookId": "d41a8767-292e-4393-9319-679c20bf382b",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Here is the condidate resume text :\n {{ $json.data }}\n\nyour output schem should be a json define below :\n[\n  {\n    \"accept\" : \"bool\"\n  }\n]",
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "You are a professional resume screening assistant that can read Persian texts.\nYour task is to analyze the provided resume text and determine whether the candidate meets the required criteria. \n\nAcceptance criteria:\n1. The resume mentions Python (experience with Python should be indicated, mastery is not required).\n2. The resume mentions experience working with APIs.\n\nBoth criteria must be met for the resume to be accepted. \nIf the resume fails to meet either criterion → accept must be false.\n\nYou must return output in a JSON format like :\n[\n  {\n    \"accept\" : \"bool\"\n  }\n]\n\nThe output must be a single JSON object with one property:\n{\n  \"accept\": true   // if both criteria are met\n}\nor\n{\n  \"accept\": false  // if either criterion is missing\n}\n\nDo not return any text, explanation, commentary, or extra fields. \nDo not include quotation marks around true/false (must be boolean, not string).\nOnly return the JSON object exactly as specified above.\n\nDo not attempt to call any tools except Structured Output Parser. Only return JSON output ; remember this every single time\n\nyour output schema should be like :\n[\n  {\n    \"accept\" : \"bool\"\n  }\n]\npay attention dont give any thing except the acception result in the output form given to you."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1264,
+        496
+      ],
+      "id": "",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -240,
+        624
+      ],
+      "id": "",
+      "name": "Download file",
+      "retryOnFail": true,
+      "maxTries": 4,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8007e005-3d30-4494-ba63-c81702f4fd3e",
+              "name": "Full Name",
+              "value": "={{ $json['Full Name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "e8cbdba4-4a83-40cc-ba6b-123ae58f9ccc",
+              "name": "Age",
+              "value": "={{ $json.Age }}",
+              "type": "number"
+            },
+            {
+              "id": "6fcf68d0-29f1-4e9e-9aec-dcdd9d55883d",
+              "name": "Gmail",
+              "value": "={{ $json.Gmail }}",
+              "type": "string"
+            },
+            {
+              "id": "f4590d69-4790-4e0d-8830-1352fc03830b",
+              "name": "Phone Number",
+              "value": "={{ $json['Phone Number'] }}",
+              "type": "number"
+            },
+            {
+              "id": "2a5c5780-9094-47b9-b650-4f36e08cf7f4",
+              "name": "Job",
+              "value": "={{ $json.Job }}",
+              "type": "string"
+            },
+            {
+              "id": "7d633355-85ef-4758-a3da-126416a9b0b4",
+              "name": "submittedAt",
+              "value": "={{ $json.submittedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        720,
+        352
+      ],
+      "id": "",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "*"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        144,
+        1904
+      ],
+      "id": "",
+      "name": "Telegram Trigger",
+      "webhookId": "",
+      "retryOnFail": false,
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        336,
+        1904
+      ],
+      "id": "",
+      "name": "If1",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        576,
+        2032
+      ],
+      "id": "",
+      "name": "Send a text message2",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Resume Form Accepts",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Full Name"
+            },
+            {
+              "lookupColumn": "Gmail"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        592,
+        1776
+      ],
+      "id": "",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        784,
+        1776
+      ],
+      "id": "",
+      "name": "Send a message2",
+      "webhookId": "",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "Gmail account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1200,
+        1760
+      ],
+      "id": "",
+      "name": "Send a text message3",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1200,
+        2016
+      ],
+      "id": "",
+      "name": "Send a text message4",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        976,
+        1888
+      ],
+      "id": "",
+      "name": "Sent ?",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const ext = items[0].binary.data.fileExtension || \"docx\";\nitems[0].binary.data.fileName = `resume.${ext}`;\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        544
+      ],
+      "id": "",
+      "name": "Code in JavaScript1"
+    },
+    {
+      "parameters": {
+        "operation": "toBinary",
+        "sourceProperty": "Files[0].FileData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        736,
+        544
+      ],
+      "id": "",
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "operation": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        944,
+        544
+      ],
+      "id": "",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://v2.convertapi.com/convert/docx/to/txt?Secret=",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "=File",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        560,
+        544
+      ],
+      "id": "",
+      "name": "HTTP Request2",
+      "retryOnFail": true,
+      "maxTries": 4
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -144,
+        48
+      ],
+      "id": "cceede00-3ac8-4ca7-ab99-e614f96554cf",
+      "name": "No Operation"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ورودی Agent Node\nconst agentOutput =  $input.first().json.output;\n\n// تبدیل string JSON به object واقعی\nlet parsed;\ntry {\n    parsed = JSON.parse(agentOutput);\n} catch (err) {\n    parsed = { accept: false }; // اگر parse نشد، false\n}\n\n// خروجی مستقیم\nreturn [\n    {\n        json: {\n            accept: parsed.accept\n        }\n    }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1552,
+        512
+      ],
+      "id": "10d5716e-54c6-487b-87fe-d56ea273c0fc",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1952,
+        368
+      ],
+      "id": "995edfd7-e91b-4176-aceb-f3b1b302454f",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ورودی: آرایه ای از دو آیتم جداگانه\nconst full = items[0].json; // object اول\nconst accept = items[1].json; // object دوم\n\n// ترکیب هر دو در یک object\nreturn [\n    {\n        json: {\n            ...full,\n            ...accept\n        }\n    }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2192,
+        256
+      ],
+      "id": "5bd580e7-ec3a-4a97-b85e-ce7c2a71e7d2",
+      "name": "Code in JavaScript2"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "0c22c2f2-0644-4d0f-a5b0-8a213f6cee10",
+              "leftValue": "={{ $json.Age }}",
+              "rightValue": 30,
+              "operator": {
+                "type": "number",
+                "operation": "lt"
+              }
+            },
+            {
+              "id": "cb2d74bd-1084-4d19-87b2-4855101dbedc",
+              "leftValue": "={{ $json.accept }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "fc442d87-b5f5-487a-9c9a-8c3d783386c8",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2400,
+        256
+      ],
+      "id": "",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2160,
+        832
+      ],
+      "id": "91a64d83-d6e6-400d-9fcc-268e5ae6d653",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ورودی: آرایه ای از دو آیتم جداگانه\nconst first = items[0].json; // object اول\nconst second = items[1].json; // object دوم\n\n// ترکیب هر دو در یک object\nreturn [\n    {\n        json: {\n            ...first,\n            ...second\n        }\n    }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2352,
+        832
+      ],
+      "id": "",
+      "name": "Code in JavaScript3",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a very experienced resume checker that this two has given to you :\nthe condidate age :\n{{ $json.Age }}\n\nand the condidate resume text :\n{{ $json.data }}\n\nthis condidate has been rejected.\ngenerate the reason of rejection in at last 3 lines.\nthe reason must be written in Persian.",
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "You are a perfect Resume Checker and your goal is to generate the reason of REJECTED resume.\na resume and age of a rejected condidate is given to you.\nyou must generate the rejection reason \nConsidering the acceptance criteria witch is define below :\nAcceptance criteria:\n1. The resume mentions Python (experience with Python should be indicated, mastery is not required).\n2. The resume mentions experience working with APIs.\n3. The candidate age must be under or equal 30 years old.\n\nBoth criteria must be met for the resume to be accepted. \n\ngenerate the rejection reason concidering the things i told you and be careful  and pay attention that every condidate info given to you is rejected and you must generate the rejection reason in Persian and very respectful and polite in maximum 3 lines.\ndont forget to say hi and hello to the condidate with his full name given in the resume text cause its in persian.\n\nexample :\nسلام علیرضا رسولیان عزیز\nمتاسفاته رزومه شما پس از انجام بررسی های لازم به دلیل ........ رد شد\nامیدواریم که در ادامه مسیر خود موفق باشید.\n\nyou must give the rejection reason only as the output with no more thing.\nyour output must be a maximum 3 line rejection reason.\nno other thing\n\npay attention that your role is very important for our candidates because with your rejection result they can understand what do they miss to get the job so be careful!\nif you didnt find the rejection reason just inform the candidate that you have been rejected and wish him success otherwise you must point the exact reason of rejection dont tell the candidate wrong rejection reason.\nif there is more than one rejection reason tell all the reasons not just one.\nand only output the reason."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        2592,
+        816
+      ],
+      "id": "",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": "",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        2496,
+        1088
+      ],
+      "id": "",
+      "name": "OpenRouter Chat Model4",
+      "credentials": {
+        "openRouterApi": {
+          "id": "",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        2704,
+        1088
+      ],
+      "id": "04907f72-18d0-47dd-9595-976831ad673f",
+      "name": "OpenRouter Chat Model5",
+      "credentials": {
+        "openRouterApi": {
+          "id": "",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2944,
+        640
+      ],
+      "id": "",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ورودی: آرایه ای از دو آیتم جداگانه\nconst first = items[0].json; // object اول\nconst second = items[1].json; // object دوم\n\n// ترکیب هر دو در یک object\nreturn [\n    {\n        json: {\n            ...first,\n            ...second\n        }\n    }\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3120,
+        640
+      ],
+      "id": "",
+      "name": "Code in JavaScript4",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Gmail }}",
+        "subject": "Resume check result",
+        "message": "={{ $json.output }}",
+        "options": {
+          "senderName": "AR COMPANY"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3120,
+        848
+      ],
+      "id": "",
+      "name": "Send a message4",
+      "webhookId": "",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        4496,
+        480
+      ],
+      "id": "",
+      "name": "Send a message5",
+      "webhookId": "",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "iIRv7HUrsx02J0vd",
+          "name": "Gmail account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        4480,
+        688
+      ],
+      "id": "",
+      "name": "Send a text message5",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        4480,
+        848
+      ],
+      "id": "",
+      "name": "Send a text message6",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "interviewDate",
+              "value": "2026-01-15"
+            },
+            {
+              "name": "candidateName",
+              "value": "={{ $json['Full Name'] }}"
+            }
+          ],
+          "number": [
+            {
+              "name": "slotMinutes",
+              "value": 15
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "",
+      "name": "Set Interview Params1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        3936,
+        208
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "calendar",
+        "calendar": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": ""
+        },
+        "timeMin": "2026-02-04T00:00:00",
+        "timeMax": "2026-02-06T00:00:00",
+        "options": {}
+      },
+      "id": "",
+      "name": "Get Calendar Events1",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [
+        4144,
+        208
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "d7WAE0ATT1mwZ4tG",
+          "name": "Google Calendar account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "language": "javascript"
+      },
+      "id": "",
+      "name": "Find First 15min Slot1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4320,
+        288
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$items().length}}",
+              "operation": "larger",
+              "value2": 0
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "",
+      "name": "IF Slot Found1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4496,
+        288
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "calendar": "primary",
+        "start": "={{$json.slotStart}}",
+        "end": "={{$json.slotEnd}}",
+        "additionalFields": {}
+      },
+      "id": "",
+      "name": "Create Interview Event1",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1,
+      "position": [
+        4304,
+        480
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "",
+          "name": "Google Calendar account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "",
+          "mode": "list",
+          "cachedResultName": "Resume Form Accepts",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Full Name": "={{ $json['Full Name'] }}",
+            "Gmail": "={{ $json.Gmail }}",
+            "Age": "={{ $json.Age }}",
+            "Phone Number": "={{ $json['Phone Number'] }}",
+            "Job": "={{ $json.Job }}",
+            "Submit Date": "={{ $json.submittedAt }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Full Name",
+              "displayName": "Full Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Gmail",
+              "displayName": "Gmail",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Age",
+              "displayName": "Age",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Job",
+              "displayName": "Job",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Submit Date",
+              "displayName": "Submit Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2640,
+        64
+      ],
+      "id": "",
+      "name": "Append row in sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        4304,
+        704
+      ],
+      "id": "",
+      "name": "Send Checker1",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "content": "Set google calender for event and free time checker",
+        "height": 960,
+        "width": 912,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        3856,
+        128
+      ],
+      "id": "",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.Gmail }}",
+        "subject": "Resume Check part2",
+        "message": "=Hello {{ $json['Full Name'] }}\nYour resume has been checked and as we saw you are approved to a meeting please contact us for more detail and meeting time.",
+        "options": {
+          "appendAttribution": false,
+          "senderName": "AR COMPANY"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        2848,
+        64
+      ],
+      "id": "",
+      "name": "Send a message1",
+      "webhookId": "",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "",
+              "leftValue": "={{ $json.labelIds[0] }}",
+              "rightValue": "=SENT",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2848,
+        288
+      ],
+      "id": "66bcf9b3-049a-4e44-bd54-47f20077a6fc",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "content": "to check with telegram",
+        "height": 688,
+        "width": 1520
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        16,
+        1648
+      ],
+      "id": "75496e37-871e-44ec-87bc-c3818b9a1336",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "dc47d68a-1736-45b2-9e5b-e1e76809de33",
+              "name": "Full Name",
+              "value": "={{ $json['Full Name'] }}",
+              "type": "string"
+            },
+            {
+              "id": "0bacd53a-eaa4-4aad-a60f-14958b4c6829",
+              "name": "Age",
+              "value": "={{ $json.Age }}",
+              "type": "number"
+            },
+            {
+              "id": "46ea173c-7a66-4a65-a8ed-7c4a0a12f07c",
+              "name": "Gmail",
+              "value": "={{ $json.Gmail }}",
+              "type": "string"
+            },
+            {
+              "id": "2a94482a-2deb-4d00-9770-f5fd93e4caf0",
+              "name": "Phone Number",
+              "value": "={{ $json['Phone Number'] }}",
+              "type": "number"
+            },
+            {
+              "id": "33f65f7c-7e5c-450b-a759-27e0af4798a4",
+              "name": "Job",
+              "value": "={{ $json.Job }}",
+              "type": "string"
+            },
+            {
+              "id": "6bbf45e1-1094-46ee-a67a-2e14d25c8516",
+              "name": "submittedAt",
+              "value": "={{ $json.submittedAt }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2144,
+        624
+      ],
+      "id": "b849c1fa-cf71-4ecb-acc1-acd3b1d0d740",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "model": "",
+        "options": {
+          "responseFormat": "json_object"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        800
+      ],
+      "id": "",
+      "name": "Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1328,
+        800
+      ],
+      "id": "",
+      "name": "Model 2",
+      "credentials": {
+        "openRouterApi": {
+          "id": "",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $binary.data.mimeType }}",
+                    "rightValue": "=application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "ef943644-d3f1-4d47-b7fe-7827c7bb4c69"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "DOCX"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "fa3215af-e432-4e6d-a1d4-5e7344816b9f",
+                    "leftValue": "={{ $binary.data.mimeType }}",
+                    "rightValue": "application/pdf",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "PDF"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "",
+                    "leftValue": "={{ $binary.data.mimeType }}",
+                    "rightValue": "image/",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "IMG"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        -16,
+        608
+      ],
+      "id": "",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "jsCode": "const ext = items[0].binary.data.fileExtension || \"pdf\";\nitems[0].binary.data.fileName = `resume.${ext}`;\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        704
+      ],
+      "id": "",
+      "name": "Code in JavaScript5"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://v2.convertapi.com/convert/pdf/to/txt",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": ""
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "StoreFile",
+              "value": "true"
+            },
+            {
+              "parameterType": "formBinaryData",
+              "name": "File",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        560,
+        704
+      ],
+      "id": "",
+      "name": "HTTP Request",
+      "retryOnFail": true
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.Files[0].Url }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        944,
+        704
+      ],
+      "id": "b5f345f5-6cf9-4b92-9d12-cfc99bcd4436",
+      "name": "HTTP Request1"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.ocr.space/parse/image",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "apikey",
+              "value": ""
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/x-www-form-urlencoded"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "file",
+              "inputDataFieldName": "data"
+            },
+            {
+              "name": "language",
+              "value": "auto"
+            },
+            {
+              "name": "OCREngine",
+              "value": "2"
+            },
+            {
+              "name": "filetype",
+              "value": "={{$json. mimeType.split('/')[1].toUpperCase()}}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        320,
+        912
+      ],
+      "id": "",
+      "name": "HTTP Request3",
+      "retryOnFail": true,
+      "maxTries": 2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "language": "python",
+        "pythonCode": "resume = _input.first().json.ParsedResults[0].ParsedText\nreturn {\n  \"data\" : resume\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        944,
+        896
+      ],
+      "id": "",
+      "name": "Code in Python (Beta)"
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3120,
+        192
+      ],
+      "id": "",
+      "name": "Send a text message",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        3120,
+        384
+      ],
+      "id": "",
+      "name": "Send a text message1",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        320,
+        1120
+      ],
+      "id": "",
+      "name": "Send a text message7",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Upload file",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload file": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "No Operation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message2": {
+      "main": [
+        [
+          {
+            "node": "Sent ?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sent ?": {
+      "main": [
+        [
+          {
+            "node": "Send a text message3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to File": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript2": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript3": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript4": {
+      "main": [
+        [
+          {
+            "node": "Send a message4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message5": {
+      "main": [
+        [
+          {
+            "node": "Send Checker1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Interview Params1": {
+      "main": [
+        [
+          {
+            "node": "Get Calendar Events1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Calendar Events1": {
+      "main": [
+        [
+          {
+            "node": "Find First 15min Slot1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Find First 15min Slot1": {
+      "main": [
+        [
+          {
+            "node": "IF Slot Found1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Slot Found1": {
+      "main": [
+        [
+          {
+            "node": "Create Interview Event1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create Interview Event1": {
+      "main": [
+        [
+          {
+            "node": "Send a message5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet2": {
+      "main": [
+        [
+          {
+            "node": "Send a message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Checker1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message1": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Model 2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code in JavaScript5",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript5": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Code in Python (Beta)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in Python (Beta)": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": ""
+  }
+}
